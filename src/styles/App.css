@@ -1,0 +1,15 @@
+.navbar {
+  display:flex;
+  justify-content: space-around;
+}
+
+.navbar--search {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar--guests {
+  display: flex;
+  flex-direction:column
+}
