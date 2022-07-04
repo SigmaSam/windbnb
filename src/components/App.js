@@ -1,14 +1,15 @@
 import React, {useState,useEffect} from 'react'
 import '../styles/App.css';
 import locData from '../assets/locations.json';
-import Navbar from './Navbar'
+import Navbar from './Navbar';
+import Rooms from './Rooms';
 
 function App() {
   /*State definition Area*/
-  const [locations, setLocations] = useState("");
+  const [locations, setLocations] = useState("Buenos Aires, Argentina");
   const [guests, setGuests] = useState({
-    adult: 1,
-    children: 2
+    adult: 0,
+    children: 0
   });
 
   /*Function definition Area*/
@@ -23,12 +24,9 @@ function App() {
   
   const pickLocation = (e) => { 
     e.preventDefault();
-    let value = e.target.value;
-    setLocations(value);
+    let location = document.getElementById("place").value
+    setLocations(location);
   }
-
-
-  useEffect(() => {return console.log(locations)} , [locations]);
   
   return (
     <div className="App">
@@ -38,6 +36,15 @@ function App() {
         handleGuest={countGuests}
         handleLocation={pickLocation}
       />
+      <h1 className="title">{locations ? `Rooms in ${locations}` : null}</h1>
+      <section className="rooms">
+        <Rooms />
+        <Rooms />
+        <Rooms />
+        <Rooms />
+        <Rooms />
+        <Rooms />
+      </section>
     </div>
   );
 }
