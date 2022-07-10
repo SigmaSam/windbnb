@@ -18,7 +18,7 @@ export default function Rooms() {
             <p className="rooms--info--host">SUPER HOST</p>
             <p className="rooms--info--details">{roomDescription}</p>
             <p className="rooms--info--ratings">
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                     star
                 </span>
                 {ratings}

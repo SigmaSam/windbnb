@@ -13,7 +13,7 @@ function App() {
   });
 
   /*Function definition Area*/
-  const countGuests = (e) => {
+  const handleGuests = (e) => {
     e.preventDefault();
     let id = e.target.value;
     let ope = e.target.name;
@@ -27,23 +27,23 @@ function App() {
     let location = document.getElementById("place").value
     setLocations(location);
   }
-  
+   
+
+  let random = Math.floor(Math.random() * (5 + 1)) + 1;
   return (
     <div className="App">
       <Navbar
         locations={locData}
         guests={guests}
-        handleGuest={countGuests}
+        handleGuest={handleGuests}
         handleLocation={pickLocation}
       />
       <h1 className="title">{locations ? `Rooms in ${locations}` : null}</h1>
       <section className="rooms">
-        <Rooms />
-        <Rooms />
-        <Rooms />
-        <Rooms />
-        <Rooms />
-        <Rooms />
+      
+          {Array.from({ length: random }).map((_, index) => (
+            <Rooms key={index} />
+          ))}
       </section>
     </div>
   );
