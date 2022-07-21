@@ -1,3 +1,4 @@
+import React from 'react';
 
 export default function Guests({count, handleCount,focused}) {
   

@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import '../styles/App.css';
 import locData from '../assets/locations.json';
 import Navbar from './Navbar';
@@ -25,11 +25,10 @@ function App() {
   const pickLocation = (e) => { 
     e.preventDefault();
     let location = document.getElementById("place").value
-    setLocations(location);
+    !location ? setLocations("Buenos Aires, Argentina") : setLocations(location)
   }
-   
 
-  let random = Math.floor(Math.random() * (5 + 1)) + 1;
+  const random = Math.floor(Math.random() * (5 + 1)) + 2;
   return (
     <div className="App">
       <Navbar
@@ -40,7 +39,6 @@ function App() {
       />
       <h1 className="title">{locations ? `Rooms in ${locations}` : null}</h1>
       <section className="rooms">
-      
           {Array.from({ length: random }).map((_, index) => (
             <Rooms key={index} />
           ))}

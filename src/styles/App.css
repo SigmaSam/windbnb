@@ -24,6 +24,7 @@
   align-items: center;
   color:#EB5757;
   background:white;
+  margin: 0 1rem;
 }
 
 .navbar--search {
@@ -80,6 +81,10 @@
 
 .plus--button {
   margin-left: 21px;
+}
+
+.navbar--locations {
+  display: flex;
 }
 .navbar--locations--input {
   height: 55px;
