@@ -101,15 +101,24 @@
   border-radius: 0 16px 16px 0;
 }
 
-.locations--option {
+.navbar--locations--list {
+  grid-column: span 2;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 2rem;
-  border: 1px solid #828282;
-  background:red
-  
+  width: 50vh;
+  justify-self: flex-end;
+  flex-direction: column;
+  list-style-type: none;
+  grid-row: 2;
+  grid-column: 1;
 }
+
+.navbar--locations--item {
+  display: flex;
+  align-items: center;;
+  text-align: center;
+  padding : 1rem 0;
+}
+
 
 
 .rooms {

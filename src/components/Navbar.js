@@ -1,20 +1,40 @@
 import React,{useState}from 'react';
 import Locations from './Locations';
 import Guests from './Guests';
+import Options from './Options';
 
-export default function Navbar({locations,handleLocation, guests, handleGuest}) {
+export default function Navbar({locations,handleLocation, handleGuest}) {
    
-    /*Create State*/
+    /*Create States*/
     const [focused, setFocused] = useState(false);
     
     const [count, setCount] = useState({
         adults: 0,
         children:0
     })
+
+    const [searchQuery, setSearchQuery] = useState(query || '');
     /*Function definition Area*/
     const handleFocus = (e) => {
         setFocused(!focused);    
     }
+
+    const { search } = window.location;
+    const query = new URLSearchParams(search).get('s');
+    
+    
+    const filterLocations = (locations, query) => {
+        if (!query) {
+            return locations;
+        }
+    
+        return locations.filter((city) => {
+            const cityName = city;
+            return cityName.includes(query);
+        });
+    };
+
+    const filteredLocations = filterLocations(locations,searchQuery);
 
     const handleCount = (e) => {
         e.preventDefault();
@@ -56,11 +76,17 @@ export default function Navbar({locations,handleLocation, guests, handleGuest}) 
                 handleFocus={handleFocus}
                 count={count}
                 bundle={bundle}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
             />
             <Guests 
                 count={count}
                 handleCount={handleCount}
                 focused={focused}
+            />
+            <Options 
+                focused={focused}
+                filteredLocations={filteredLocations}
             />
         </nav>       
     

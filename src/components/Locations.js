@@ -1,26 +1,11 @@
 import React, {useState} from 'react';
 
 
-export default function Locations({locations,focused,handleFocus,count,bundle}) {
+export default function Locations({locations,focused,handleFocus,count,bundle,searchQuery,setSearchQuery}) {
     /* List of 100 most popular cities */
 
     /* Functions */
-    const { search } = window.location;
-    const query = new URLSearchParams(search).get('s');
-    const [searchQuery, setSearchQuery] = useState(query || '');
-    
-    const filterLocations = (locations, query) => {
-        if (!query) {
-            return locations;
-        }
-    
-        return locations.filter((city) => {
-            const cityName = city;
-            return cityName.includes(query);
-        });
-    };
 
-    const filteredLocations = filterLocations(locations,searchQuery);
     
 
     /*Conditional Styles*/
@@ -50,6 +35,11 @@ export default function Locations({locations,focused,handleFocus,count,bundle}) 
         gridColumn: "span 2",
         height: "5rem"
     }
+
+    const fStyleLocations = {
+        gridColumnStart: "1",
+    }
+    
    
     return (
         <form className="navbar--search"
@@ -69,24 +59,21 @@ export default function Locations({locations,focused,handleFocus,count,bundle}) 
                     placeholder="Where do you want to go?" 
                     className="navbar--locations--input"
                 />
-                
-                {/*<datalist id="places">
-                    {cities}               
-                </datalist>*/}
+                {/*Shows how many guests there are.*/}
                 <div className="navbar--guests">
-                     {/*Shows how many guests there are.*/}
-                        <input 
-                            onClick={handleFocus}
-                            style={ !focused ? null : fStyleGuest }
-                            defaultValue={
-                                (count.adults + count.children === 0)
-                                ? "" 
-                                : count.adults + count.children + ` Guests`
-                            }
-                            placeholder="Guests"
-                            className="navbar--guests--input"
-                        />
+                    <input 
+                        onClick={handleFocus}
+                        style={ !focused ? null : fStyleGuest }
+                        defaultValue={
+                            (count.adults + count.children === 0)
+                            ? "" 
+                            : count.adults + count.children + ` Guests`
+                        }
+                        placeholder="Guests"
+                        className="navbar--guests--input"
+                    />
                 </div>
+                {/*Button to submit*/}
                 <button
                     style={ !focused ? null : fStyleSButton }            
                     className="navbar--search--button"
@@ -97,14 +84,10 @@ export default function Locations({locations,focused,handleFocus,count,bundle}) 
                     </span>
                     {!focused ? null : "Search"}
                 </button>
+                {/*Shows Location Options*/}
+                
             </div>
-            <div className="results-container">
-            <ul>
-                { filteredLocations.slice(0,4).map(city =>(
-                    <li key={city}>{city}</li>
-                ))}
-            </ul>
-            </div>
+          
         </form>
     )
  }
