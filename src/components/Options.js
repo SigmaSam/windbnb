@@ -17,7 +17,7 @@ export default function Options({focused,filteredLocations}) {
                 <li key={city}
                     className="navbar--locations--item"
                 >
-                    <span class="material-symbols-outlined">location_on</span>
+                    <span className="material-symbols-outlined">location_on</span>
                     {city}
                 </li>
             ))}

@@ -17,7 +17,7 @@ export default function Navbar({locations,handleLocation, handleGuest}) {
     const query = new URLSearchParams(search).get('s');
     const [searchQuery, setSearchQuery] = useState(query || '');
     /*Function definition Area*/
-    const handleFocus = (e) => {
+    const handleFocus = () => {
         setFocused(true);    
     }  
     

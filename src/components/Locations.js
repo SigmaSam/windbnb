@@ -27,10 +27,10 @@ export default function Locations({focused,handleFocus,count,bundle,searchQuery,
                 onSubmit={bundle} 
                 style={ !focused ? null : fStyleSearch }
         >
-                {/*Search box Input with places.*/}
-                <input
-                    onClick={handleFocus}
-                    value={searchQuery}
+            {/*Search box Input with places.*/}
+            <input
+                onClick={handleFocus}
+                value={searchQuery}
                     onInput={e => setSearchQuery(e.target.value)}
                     type="text"
                     id="place" 
