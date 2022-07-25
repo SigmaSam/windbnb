@@ -10,11 +10,11 @@ export default function Locations({focused,handleFocus,count,bundle,searchQuery,
 
     /*Conditional Styles*/
     const fStyleInputs = {
-        "width": "100%"
+        
     }
 
     const fStyleGuest = {
-        width: "100%",
+        
     }
 
     const fStyleSButton = {
