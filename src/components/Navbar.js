@@ -13,15 +13,13 @@ export default function Navbar({locations,handleLocation, handleGuest}) {
         children:0
     })
 
+    const { search } = window.location;
+    const query = new URLSearchParams(search).get('s');
     const [searchQuery, setSearchQuery] = useState(query || '');
     /*Function definition Area*/
     const handleFocus = (e) => {
-        setFocused(!focused);    
-    }
-
-    const { search } = window.location;
-    const query = new URLSearchParams(search).get('s');
-    
+        setFocused(true);    
+    }  
     
     const filterLocations = (locations, query) => {
         if (!query) {

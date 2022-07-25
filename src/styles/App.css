@@ -7,6 +7,7 @@
   margin-top: 6rem;
 }
 
+/* Navigation */
 .navbar {
   position: fixed;
   top: 0;
@@ -29,14 +30,17 @@
 
 .navbar--search {
   display: flex;
+  margin: 1rem;
   justify-content: center;
   align-items: center;
   background:white;
 }
 
-.navbar--guests {
-  display: flex;
-  flex-direction:column
+.navbar--search--button {
+  background: white;
+  height: 60px;
+  box-shadow: 0px 1px 6px 0px #0000001A;
+  border-radius: 0 16px 16px 0;
 }
 
 .navbar--guests--input {
@@ -46,18 +50,16 @@
   font-size: 1rem;
 }
 
-.navbar--guests--counters--container {
-  display: flex;
-  flex-direction: column;
-}
-
 .navbar--guests--counters {
-
   display: flex;
   flex-direction: column;
   align-content: center;
   margin: 0 2rem;
+}
 
+.navbar--guests--counters--container {
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar--guests--counters--buttons {
@@ -83,9 +85,6 @@
   margin-left: 21px;
 }
 
-.navbar--locations {
-  display: flex;
-}
 .navbar--locations--input {
   height: 55px;
   box-shadow: 0px 1px 6px 0px #0000001A;
@@ -94,17 +93,9 @@
   font-size: 1rem;
 }
 
-.navbar--search--button {
-  background: white;
-  height: 60px;
-  box-shadow: 0px 1px 6px 0px #0000001A;
-  border-radius: 0 16px 16px 0;
-}
-
 .navbar--locations--list {
-  grid-column: span 2;
+  grid-column: 1;
   display: flex;
-  width: 50vh;
   justify-self: flex-end;
   flex-direction: column;
   list-style-type: none;
@@ -114,25 +105,26 @@
 
 .navbar--locations--item {
   display: flex;
-  align-items: center;;
-  text-align: center;
+  align-items: center;
   padding : 1rem 0;
+  width:100%;
 }
 
-
+/* Rooms */
 
 .rooms {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
-  text-align: center;
+  justify-content: center;
   gap: 1rem;
 }
 
 .rooms--container {
   display: flex;
   flex-direction: column;
-  margin: 2rem;
+  margin: 0 auto;
+  max-width: 75%;
 }
 
 .rooms--container--img {
@@ -165,3 +157,23 @@
   text-align: left;
 }
 
+
+/* Querries  */
+@media screen and (max-width: 1400px) {
+  .rooms {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .rooms {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 750px) {
+   .navbar--search {
+    flex-shrink: 2;
+  }
+}
+  
