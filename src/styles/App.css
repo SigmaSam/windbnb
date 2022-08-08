@@ -45,6 +45,7 @@
 
 .navbar--guests--input {
   height: 55px;
+  border: 1px solid gray;
   box-shadow: 0px 1px 6px 0px #0000001A;
   text-align:center;
   font-size: 1rem;
@@ -87,6 +88,7 @@
 
 .navbar--locations--input {
   height: 55px;
+  border: 1px solid gray;
   box-shadow: 0px 1px 6px 0px #0000001A;
   border-radius:  16px 0 0 16px ;
   text-align:center;
@@ -172,8 +174,9 @@
 }
 
 @media screen and (max-width: 750px) {
-   .navbar--search {
-    flex-shrink: 2;
+   .navbar--locations--input,
+  .navbar--guests--input{
+    width: 100%;
   }
 }
   
